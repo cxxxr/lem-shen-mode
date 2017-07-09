@@ -69,17 +69,16 @@
                         "and" "or" "if" "do" "lambda" "freeze" "let"
                         "cond" "cases" "trap-error" "where"
                         "defun" "/." "defcc"))
-                    :captures (vector nil
-                                      (make-tm-name 'syntax-keyword-attribute)))
+                    :captures (vector nil (make-tm-name 'syntax-keyword-attribute)))
                    (make-tm-match
                     "[\\s()\\[\\]{}]([A-Z][^\\s()\\[\\];{}]*)(?=$|[\\s;()\\[\\]{}])"
-                    :name 'syntax-variable-attribute)
+                    :captures (vector nil (make-tm-name 'syntax-variable-attribute)))
                    (make-tm-match
                     "[\\s()\\[\\]{}](->|<-|-->|<--|==>|<==|:=|__+)(?=$|[\\s;()\\[\\]{}])"
-                    :name 'syntax-keyword-attribute)
+                    :captures (vector nil (make-tm-name 'syntax-keyword-attribute)))
                    (make-tm-match
                     "[\\s()\\[\\]{}](=|==|<|>|<=|>=|\\+|-|\\*|/)(?=$|[\\s;()\\[\\]{}])"
-                    :name 'syntax-keyword-attribute)
+                    :captures (vector nil (make-tm-name 'syntax-keyword-attribute)))
                    (make-tm-match
                     "\\[\\]|\\(\\)"
                     :name 'syntax-constant-attribute))))
